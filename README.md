@@ -61,19 +61,19 @@ LensIQ automates this process by intelligently analyzing multiple real-world par
 The overall architecture illustrates the interaction between the user interface, backend services, Location Intelligence Engine, AI Photo Analysis module, external APIs, and intelligent scoring system.
 
 <p align="center">
-<img src="screenshots/system-architecture.png" width="700">
+  <img src="./screenshots/System%20Architecture.png" width="800">
 </p>
 
 ---
 
-# 📷 Application Screenshot
+# 📷 Application Screenshots
 
 ## 🏠 1. Home Page
 
 The landing page allows photographers to select photography type, location, date, and search radius.
 
 <p align="center">
-<img src="screenshots/home-page.png" width="900">
+  <img src="./screenshots/Home%20Page.png" width="900">
 </p>
 
 ---
@@ -83,7 +83,7 @@ The landing page allows photographers to select photography type, location, date
 Users can search locations using intelligent filters and Google Maps integration.
 
 <p align="center">
-<img src="screenshots/smart-location-search.png" width="900">
+  <img src="./screenshots/Smart%20Location%20Search.png" width="900">
 </p>
 
 ---
@@ -93,7 +93,7 @@ Users can search locations using intelligent filters and Google Maps integration
 Displays real-time suitability analysis based on weather, lighting, accessibility, and contextual environmental parameters.
 
 <p align="center">
-<img src="screenshots/suitability-dashboard.png" width="900">
+  <img src="./screenshots/Suitability%20Dashboard.png" width="900">
 </p>
 
 ---
@@ -103,7 +103,7 @@ Displays real-time suitability analysis based on weather, lighting, accessibilit
 Locations are ranked using the weighted scoring engine with suitability reports, navigation, and scheduling support.
 
 <p align="center">
-<img src="screenshots/ranked-photography-locations.png" width="900">
+  <img src="./screenshots/Ranked%20Photography%20Locations.png" width="900">
 </p>
 
 ---
@@ -113,7 +113,7 @@ Locations are ranked using the weighted scoring engine with suitability reports,
 Displays community reviews and feedback to help photographers make informed decisions.
 
 <p align="center">
-<img src="screenshots/user-review-feedback-analysis.png" width="900">
+  <img src="./screenshots/User%20Review%20Display%20and%20Feedback%20Analysis%20Module.png" width="900">
 </p>
 
 ---
@@ -123,7 +123,7 @@ Displays community reviews and feedback to help photographers make informed deci
 Evaluates uploaded photographs using AI techniques including blur detection, sharpness analysis, image quality assessment, and aesthetic scoring.
 
 <p align="center">
-<img src="screenshots/photo-quality-analysis.png" width="700">
+  <img src="./screenshots/Photo%20Quality%20Analysis%20Interface.jpg" width="700">
 </p>
 
 ---
@@ -133,7 +133,7 @@ Evaluates uploaded photographs using AI techniques including blur detection, sha
 Allows users to organize photographs, view AI analysis results, and manage their personal photography collection.
 
 <p align="center">
-<img src="screenshots/personalized-dashboard.png" width="900">
+  <img src="./screenshots/Personalized%20Photo%20Collection%20and%20AI%20Analysis%20Dashboard.png" width="900">
 </p>
 
 ---
