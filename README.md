@@ -66,7 +66,7 @@ The overall architecture illustrates the interaction between the user interface,
 
 ---
 
-# 📷 Application Screenshots
+# 📷 Application Screenshot
 
 ## 🏠 1. Home Page
 
