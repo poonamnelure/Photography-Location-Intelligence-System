@@ -72,7 +72,7 @@ export const searchLocations = async ( req, res ) => {
                         lng: point.lng,
                         radius,
                         category,
-                        apikey: "AIzaSyAanVf4EyeGKgKcQMOC3A8H50YIjx1xYcY"
+                        apikey: "YOUR_GOOGLE_API_KEY"
                     })
                 )
             }
