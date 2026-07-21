@@ -1,0 +1,12 @@
+[33m327d460[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Added WeatherSuitablity & LightingCondition
+[33m0d6bea4[m Added WeatherSuitablity & LightingCondition
+[33m30975bd[m Implemented AI photo processing pipeline with BullMQ ,Docker, Redis, MongoDB, Google vision cloud API  and worker concurrency
+[33m8e2477f[m 4 parameters implemented - CrowdDensity, LightPollution, Accessibilit, timeSuitaibility (Refinement may needed)
+[33m26b07c0[m TentativeLocation Fetching and preprocessing done
+[33m7964575[m homepage done
+[33m0c2c378[m Set up core pages and designed home page with loader
+[33m363c9a7[m Server is working Fine, Added route for searchLocations
+[33m712cecb[m DirectoryStructure
+[33m54f9f78[m Server Established
+[33m1711a86[m Project Initialization
+[33ma6350d9[m[33m ([m[1;31morigin/master[m[33m)[m Initial commit

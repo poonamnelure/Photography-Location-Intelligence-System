@@ -1,0 +1,25 @@
+node_modules/
+.env
+.env.*
+!.env.example
+backend/keys/
+
+**/node_modules/
+
+
+frontend/dist/
+frontend/build/
+
+# static files
+backend/uploads
+backend/generatedPDFs
+backend/reports
+backend/uploads
+
+*.log
+logs/
+
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

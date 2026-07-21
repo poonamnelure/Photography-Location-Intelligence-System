@@ -1,0 +1,261 @@
+/* ══════════════════════════════════════════════════════════════
+   SuitabilityMeter.css
+   Styles for RainbowMeter + PhotoTypeDonut
+   — Full light / dark theme support via CSS variables —
+══════════════════════════════════════════════════════════════ */
+
+/* ── Component-level tokens (dark default) ────────────────── */
+html,
+html[data-theme='dark'] {
+
+  /* ── Layout / background tokens ── */
+  --sm-item-bg:          rgba(255, 255, 255, 0.03);
+  --sm-item-bg-active:   rgba(255, 255, 255, 0.06);
+  --sm-item-bg-hover:    rgba(255, 255, 255, 0.05);
+  --sm-item-border:      rgba(255, 255, 255, 0.07);
+
+  /* ── Text tokens (CSS classes) ── */
+  --sm-loc-name-clr:     rgba(240, 237, 232, 0.70);
+  --sm-text-primary:     #f0ede8;
+  --sm-text-sec:         rgba(240, 237, 232, 0.55);
+  --sm-text-muted:       rgba(240, 237, 232, 0.30);
+  --sm-bar-track:        rgba(255, 255, 255, 0.07);
+
+  /* ── RainbowMeter SVG fill tokens (read via useThemeVars) ── */
+  --sm-arc-track:        rgba(255, 255, 255, 0.06);
+  --sm-divider:          rgba(255, 255, 255, 0.18);
+  --sm-tick-major:       rgba(255, 255, 255, 0.22);
+  --sm-tick-minor:       rgba(255, 255, 255, 0.18);
+  --sm-scale-num:        rgba(240, 237, 232, 0.30);
+  --sm-sub-score:        rgba(240, 237, 232, 0.35);
+
+  /* ── PhotoTypeDonut SVG fill tokens (read via useThemeVars) ── */
+  --ptd-track:           rgba(255, 255, 255, 0.05);
+  --ptd-center-label:    rgba(240, 237, 232, 0.30);
+  --ptd-center-sub:      rgba(240, 237, 232, 0.45);
+  --ptd-leg-label:       rgba(240, 237, 232, 0.65);
+  --ptd-leg-pct:         rgba(240, 237, 232, 0.35);
+  --ptd-bar-track:       rgba(255, 255, 255, 0.08);
+
+  /* ── Fonts ── */
+  --sm-font-body:        'DM Sans', sans-serif;
+  --sm-font-display:     'Cormorant Garamond', serif;
+}
+
+/* ── Light overrides ──────────────────────────────────────── */
+html[data-theme='light'] {
+
+  /* ── Layout / background tokens ── */
+  --sm-item-bg:          rgba(0, 0, 0, 0.03);
+  --sm-item-bg-active:   rgba(0, 0, 0, 0.06);
+  --sm-item-bg-hover:    rgba(0, 0, 0, 0.05);
+  --sm-item-border:      rgba(0, 0, 0, 0.09);
+
+  /* ── Text tokens (CSS classes) ── */
+  --sm-loc-name-clr:     rgba(26, 21, 16, 0.65);
+  --sm-text-primary:     #1a1510;
+  --sm-text-sec:         rgba(26, 21, 16, 0.60);
+  --sm-text-muted:       rgba(26, 21, 16, 0.35);
+  --sm-bar-track:        rgba(0, 0, 0, 0.07);
+
+  /* ── RainbowMeter SVG fill tokens ── */
+  --sm-arc-track:        rgba(0, 0, 0, 0.07);
+  --sm-divider:          rgba(0, 0, 0, 0.18);
+  --sm-tick-major:       rgba(0, 0, 0, 0.22);
+  --sm-tick-minor:       rgba(0, 0, 0, 0.14);
+  --sm-scale-num:        rgba(26, 21, 16, 0.35);
+  --sm-sub-score:        rgba(26, 21, 16, 0.40);
+
+  /* ── PhotoTypeDonut SVG fill tokens ── */
+  --ptd-track:           rgba(0, 0, 0, 0.06);
+  --ptd-center-label:    rgba(26, 21, 16, 0.35);
+  --ptd-center-sub:      rgba(26, 21, 16, 0.55);
+  --ptd-leg-label:       rgba(26, 21, 16, 0.65);
+  --ptd-leg-pct:         rgba(26, 21, 16, 0.40);
+  --ptd-bar-track:       rgba(0, 0, 0, 0.08);
+}
+
+/* ══════════════════════════════════════════════════════════
+   RAINBOW SEMICIRCLE METER
+══════════════════════════════════════════════════════════ */
+.sm-rainbow-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.sm-rainbow-svg {
+  display: block;
+  overflow: visible;
+}
+
+@keyframes sm-pulse {
+  0%   { transform: scale(1);   opacity: 0.6; }
+  100% { transform: scale(1.9); opacity: 0;   }
+}
+
+/* ── Location legend ─────────────────────────────────────── */
+.sm-loc-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 100%;
+  max-width: 380px;
+}
+
+.sm-loc-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 13px;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background: var(--sm-item-bg);
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.sm-loc-item:hover {
+  background: var(--sm-item-bg-hover);
+}
+
+.sm-loc-item--active {
+  background: var(--sm-item-bg-active);
+  border-color: var(--sm-item-border);
+}
+
+.sm-loc-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.sm-loc-rank {
+  font-size: 11px;
+  font-weight: 700;
+  font-family: var(--sm-font-body);
+  min-width: 20px;
+  /* color is always set inline to RANK_PALETTE colour — no var needed */
+}
+
+.sm-loc-name {
+  font-size: 13px;
+  color: var(--sm-loc-name-clr);
+  font-family: var(--sm-font-body);
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 0.35s;
+}
+
+.sm-loc-score {
+  font-family: var(--sm-font-display);
+  font-size: 17px;
+  font-weight: 500;
+  min-width: 30px;
+  text-align: right;
+  /* color is always set inline to RANK_PALETTE colour — no var needed */
+}
+
+/* ══════════════════════════════════════════════════════════
+   PHOTO TYPE DONUT
+══════════════════════════════════════════════════════════ */
+.ptd-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  max-width: 100%;
+}
+
+.ptd-wrap svg {
+  width: 100%;
+  height: auto;
+  max-width: 280px;
+}
+
+/* ── Legend container ── */
+.ptd-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+}
+
+/* ── Each legend row ── */
+.ptd-leg-item {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 7px 11px;
+  border-radius: 9px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  /* background & borderColor are always driven inline from seg.color or transparent */
+  transition: background 0.2s, border-color 0.2s, opacity 0.25s;
+}
+
+/* ── Colour dot ── */
+.ptd-leg-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+/* ── Genre label text ── */
+.ptd-leg-label {
+  font-size: 12.5px;
+  font-family: var(--sm-font-body);
+  flex: 0 0 auto;
+  min-width: 72px;
+  /* color driven inline via legLabel CSS var — see JSX */
+  transition: color 0.2s;
+}
+
+/* ── Mini progress bar ── */
+.ptd-leg-bar-wrap {
+  flex: 1;
+  height: 4px;
+  border-radius: 999px;
+  /* background driven inline via barTrack CSS var — see JSX */
+  overflow: hidden;
+  position: relative;
+}
+
+.ptd-leg-bar-fill {
+  height: 100%;
+  border-radius: 999px;
+  min-width: 2px;
+  transition: opacity 0.2s, box-shadow 0.2s;
+}
+
+/* ── Percentage text ── */
+.ptd-leg-pct {
+  font-family: var(--sm-font-display);
+  font-size: 15px;
+  font-weight: 500;
+  flex-shrink: 0;
+  min-width: 34px;
+  text-align: right;
+  /* color driven inline via legPct CSS var — see JSX */
+  transition: color 0.2s;
+}
+
+/* ── Reduced motion ─────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .sm-loc-item,
+  .ptd-leg-item,
+  .sm-loc-name,
+  .ptd-leg-label,
+  .ptd-leg-pct,
+  .ptd-leg-dot,
+  .ptd-leg-bar-fill {
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,12 @@
+# This file lists node package names for reference only.
+# Install using: cd backend && npm install
+express
+axios
+dotenv
+pdfkit
+multer
+sharp
+exif-parser
+mongoose
+uuid
+dayjs
